@@ -1,0 +1,1022 @@
+/* 初始化 */
+* {
+    margin: 0;
+    padding: 0;
+    /*好处:修改boreder和padding数值盒子的大小不变*/
+    box-sizing: border-box;
+}
+
+/* 去掉li 的小圆点 */
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+em {
+    font-style: normal;
+}
+
+h2 {
+    font-weight: normal;
+}
+
+/* ------------------------------------------------------- */
+/* 字体声明 */
+@font-face {
+    font-family: '../icomoon';
+    src: url('../fonts/icomoon.eot?gf3yqj');
+    src: url('../fonts/icomoon.eot?gf3yqj#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?gf3yqj') format('truetype'),
+        url('../fonts/icomoon.woff?gf3yqj') format('woff'),
+        url('../fonts/icomoon.svg?gf3yqj#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+/* ------------------------------------------------------- */
+/* 静态布局 */
+.w {
+    /* min-width: 1226px; */
+    width: 1226px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* 黑色快捷导航栏------------------------------------------------------- */
+.site-topbar {
+    /* 高 */
+    height: 40px;
+    width: 100%;
+    /* 背景颜色 */
+    background-color: #333333;
+}
+
+.site-topbar .container {
+    /* 宽度 */
+    width: 1226px;
+    /* 高度：高度不会继承父元素 */
+    height: 40px;
+    /* 居中对齐 */
+    margin-right: auto;
+    margin-left: auto;
+    /* 字体大小 */
+    font: 12px sans-serif;
+    /* background-color: pink; */
+    /* 字体颜色 */
+    color: #B0B0B0;
+}
+
+.site-topbar .container .L {
+    /* 在一行显示 */
+    float: left;
+    /* background-color: green; */
+}
+
+.site-topbar .container .R {
+    /* 在一行显示 */
+    float: right;
+    /* background-color: green; */
+}
+
+.site-topbar .container a {
+    /* 字体颜色 */
+    color: #b0b0b0;
+    /* 行高 */
+    line-height: 40px;
+}
+
+.site-topbar .container a:hover {
+    color: white;
+}
+
+.site-topbar .container .sx-l {
+    /* 颜色 */
+    color: #424242;
+    /* 边距 */
+    margin: 0px 3.6px;
+}
+
+.site-topbar .container .R a {
+    /* 行内块元素 */
+    display: inline-block;
+    /* 高 */
+    height: 40px;
+    /* 内边距 */
+    padding: 0 5px;
+    /* 文字居中 */
+    text-align: center;
+}
+
+.site-topbar .container .R .mas {
+    padding: 0 10px;
+}
+
+.site-topbar .container .sx-r {
+    /* 颜色 */
+    color: #424242;
+    /* 边距:0 */
+}
+
+.site-topbar .container .minicar {
+    /* 左浮动 */
+    float: right;
+    /* 宽度 */
+    width: 120px;
+    /* 高度 */
+    height: 40px;
+    /* 背景颜色 */
+    background-color: #424242;
+    /* 文字居中 */
+    text-align: center;
+}
+
+.site-topbar .container .minicar em {
+    font-family: "../icomoon";
+    /* 字体大小 */
+    font-size: 20px;
+    /* 行高 */
+    line-height: 20px;
+    margin-right: 5px;
+
+}
+
+.site-topbar .container .minicar:hover {
+    background-color: #fff;
+}
+
+.site-topbar .container .minicar:hover .shop {
+    color: #ff6700;
+}
+
+/* 头部------------------------------------------------------- */
+.header {
+    /* 高度 */
+    height: 100px;
+    /* background-color: pink; */
+    position: relative;
+}
+
+.logo {
+    width: 56px;
+    height: 56px;
+    /* background-color: green; */
+    position: absolute;
+    top: 22px;
+}
+
+.logo a {
+    /* 转换为块级元素设置宽高 */
+    display: block;
+    width: 56px;
+    height: 56px;
+    /* 此时在css文件夹，所以需要返回上一级，即../ */
+    background: url(../images/logo-mi2.png) no-repeat;
+    background-size: 56px;
+    /* 隐藏文字 */
+    font-size: 0;
+}
+
+.little_nav {
+    position: absolute;
+    /* width: 602px; */
+    left: 234px;
+    top: 12px;
+    /* background-color: green; */
+}
+
+.little_nav li {
+    float: left;
+    height: 88px;
+    padding: 26px 10px 38px 10px;
+}
+
+.little_nav li a {
+    color: #333;
+}
+
+.little_nav li a:hover {
+    color: #ff6700;
+}
+
+.little_nav div {
+    display: none;
+}
+
+/* 小导航栏下拉菜单------------------------------------------------------- */
+.bigbox {
+    /*宽
+    高
+    背景颜色
+    上边框 js实现
+    隐藏
+    变化 */
+    width: 100%;
+    height: 0px;
+    background-color: #fff;
+    display: none;
+    transition: height 0.3s;
+    /* 定位
+    边框阴影 */
+    position: absolute;
+    left: 0px;
+    top: 100px;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.18);
+    overflow: hidden;
+    z-index: 2000;
+}
+
+.caidan li {
+    /* 浮动
+    纵向巨中 */
+    float: left;
+    margin-top: 33px;
+    /* 让li中图片居中显示 */
+    text-align: center;
+}
+
+.caidan .img {
+    /* 宽
+    高
+    左边框
+    居中对齐 */
+    width: 200px;
+    height: 150px;
+    border-right: 1px solid #e0e0e0;
+}
+
+.caidan .img img {
+    width: 164px;
+}
+
+.caidan .name {
+    /* 字体大小
+    居中对齐
+    字体颜色
+     */
+    font-size: 12px;
+    color: #333;
+    text-align: center;
+}
+
+.caidan .pay {
+    /* 字体大小
+    居中对齐
+    字体颜色 */
+    font-size: 12px;
+    color: #ff6700;
+    text-align: center;
+}
+
+/* 搜索框模块---------------------------------------------*/
+.search {
+    position: relative;
+    width: 296px;
+    height: 50px;
+    /* background-color: red; */
+    float: right;
+    margin-top: 25px;
+}
+
+.search input {
+    /* 字体颜色、大小
+    行高
+    边框
+    宽度\高度
+    边距
+    位置
+    去除点击输入的边框 */
+    color: #757575;
+    font-size: 14px;
+    line-height: 48px;
+    border: 1px solid #e0e0e0;
+    width: 245px;
+    height: 50px;
+    padding: 0 10px;
+    position: absolute;
+    right: 51px;
+    outline: none;
+}
+
+/* 清除默认叉号 */
+input::-webkit-search-cancel-button {
+    display: none;
+}
+
+.search input:hover {
+    /* input和button的边框先清除然后再加上统一边框 */
+}
+
+.search button {
+    /* 宽、高
+    边距
+    边框
+    位置
+    字体颜色、大小
+    行高
+    背景颜色 */
+    width: 52px;
+    height: 50px;
+    ;
+    border: 1px solid #e0e0e0;
+    padding: 1px 6px;
+    position: absolute;
+    right: 0;
+    font-family: "../icomoon";
+    color: #616161;
+    font-size: 24px;
+    background-color: #fff;
+}
+
+.search button:hover {
+    border: none;
+    background-color: #ff6700;
+    color: #fff;
+}
+
+/* 推荐热点词下拉框 */
+.tuijian {
+    /* 宽、高
+    背景色
+    边框
+    位置
+    隐藏 */
+    width: 245px;
+    background-color: #fff;
+    border: 0 1px 1px 1px solid #ff6700;
+    position: absolute;
+    top: 50px;
+    left: 0px;
+    display: none;
+}
+
+/* .tuijian li {
+    z-index: 2000;
+} */
+.tuijian li a {
+    /* 字体大小
+    字体颜色
+    字体距离边框左边边框距离、行距 */
+    font-size: 12px;
+    color: #424242;
+    display: inline-block;
+    padding: 7px 15px;
+}
+
+/* 经过li行背景色变色 */
+.tuijian li:hover {
+    background-color: #f6f6f6;
+}
+
+/* input输入框获得焦点
+边框变色
+搜索推荐框显示 */
+.search input:focus {
+    border: 1px solid #ff6700;
+}
+
+.search input:focus~button {
+    border: 1px solid #ff6700;
+}
+
+.search input:focus~.tuijian {
+    border-collapse: collapse;
+    border: 1px solid #ff6700;
+    border-top: none;
+    display: block;
+}
+
+/* 大图片部分------------------------------------------------------- */
+.bgc {
+    /* 高 */
+    height: 460px;
+}
+
+/* .bgc .img img {
+    图片大小
+    width: 100%;
+    height: 100%;
+    position: relative;
+} */
+.bigtu .left_nav {
+    /* 宽
+    高 可以撑开
+    背景色
+    定位
+    上下外边距 */
+    width: 234px;
+    background: rgba(105, 101, 101, .6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* float: left; */
+    padding: 20px 0;
+}
+
+.bigtu .left_nav li:hover {
+    /* 鼠标经过背景颜色变色
+    详细盒子出现 */
+    background-color: #ff6700;
+}
+
+.bigtu .left_nav a {
+    /* 字体颜色
+    字体大小
+    左边距 */
+    color: #fff;
+    font-style: 14px;
+    padding-left: 30px;
+    /* 高度 */
+    height: 42px;
+    /* 文字垂直居中 */
+    line-height: 42px;
+
+}
+
+.bigtu .left_nav span {
+    /* 字体颜色
+    字体大小
+    浮动
+    距右边间距 */
+    font-family: "../icomoon";
+    color: #e0e0e0;
+    font-size: 22px;
+    float: right;
+    padding-right: 20px;
+    /* 文字居中显示 */
+    height: 42px;
+    line-height: 42px;
+}
+
+/* 详情页盒子------------ */
+.xiangqing {
+    /* 宽:不用固定死 用内容撑开、高
+    背景色
+    边框
+    边框阴影
+    位置 */
+    /* width: 993px; */
+    height: 100%;
+    border: 1px solid #e0e0e0;
+    border-left: none;
+    box-shadow: 5px 5px 5px #eee;
+    position: absolute;
+    top: 0;
+    left: 234px;
+    z-index: 11;
+    /* float: left; */
+    background-color: #fff;
+    display: none;
+}
+
+.xiangqing ul {
+    /* 定位
+    每个ul间隔 */
+    float: left;
+    width: 247px;
+    height: 458px;
+    padding: 2px 0;
+}
+
+.xiangqing ul li {
+    height: 76px;
+}
+
+.xiangqing a {
+    /* 块级元素
+    宽高
+    内外间距撑开 */
+    display: block;
+    padding: 18px 20px;
+    margin: 0;
+    /* width: 225px; */
+    /* 图片 文字居中 */
+    height: 40px;
+    line-height: 40px;
+    /* 文字颜色 */
+    color: #333;
+
+
+}
+
+.xiangqing a img {
+    /* 图片大小 */
+    width: 40px;
+    height: 40px;
+    /* 图片文字一行显示 */
+    vertical-align: middle;
+    margin-right: 6px;
+}
+
+.xiangqing a span {
+    /* 
+    文字大小 
+    宽度
+     */
+    font-size: 14px;
+    /* width: 172px; */
+}
+
+/* 轮播图------------------------------------------ */
+/* .lunbo {
+    width: 100%;
+    height: 100%;
+} */
+.lunbo {
+    /* 一定要加position：relative，不然overflow：hidden不起作用 */
+    position: relative;
+    width: 1226px;
+    height: 460px;
+    overflow: hidden;
+}
+
+.lunbo ul {
+    width: 600%;
+    /* 动画函数所需 */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.lunbo ul li {
+    float: left;
+}
+
+.lunbo ul li a img {
+    width: 1226px;
+    height: 460px;
+}
+
+/* 按钮 */
+.lunbo .button {
+    /* 大小
+    位置
+    背景颜色 */
+    width: 41px;
+    height: 69px;
+    position: absolute;
+    top: 50%;
+    margin-top: -35px;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0);
+    /* 字体颜色 */
+    font-family: "../icomoon";
+    color: #e0e0e0;
+    /* padding-left: -50%; */
+    /* vertical-align: middle; */
+}
+
+.lunbo .btn_l {
+    /* 位置 */
+    left: 234px;
+    /* 鼠标移动到小圆圈上变成手指鼠标 */
+    cursor: pointer;
+}
+
+.lunbo .btn_r {
+    right: 0;
+    /* 鼠标移动到小圆圈上变成手指鼠标 */
+    cursor: pointer;
+}
+
+.lunbo em {
+    /* 字体大小、字体居中 */
+    font-size: 45px;
+    line-height: 69px;
+    text-align: center;
+}
+
+.lunbo .btn_l em {
+    margin-left: 12.5%;
+}
+
+.lunbo .btn_r em {
+    margin-left: -25%;
+}
+
+.button:hover {
+    color: #fff;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+/* 小圆点 */
+.circle {
+    /*位置 */
+    /* width: 400px;
+    height: 21px; */
+    position: absolute;
+    /* right: 30px; */
+    bottom: 20px;
+    right: 60px;
+    /* bottom: 10px; */
+    /* text-align: right; */
+}
+
+.circle li {
+    /* float: left;
+    margin: 0 4px; */
+    /* width: 6px;
+    height: 6px; */
+    /* width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid #939393;
+    overflow: hidden;
+    background-color: #5c8382;
+    background: rgba(0, 0, 0, .4); */
+    float: left;
+    width: 10px;
+    height: 10px;
+    margin: 0 4px;
+    background-color: #5c8382;
+    border: 2px solid #939393;
+    /* overflow: hidden; */
+    border-radius: 10px;
+    /* 鼠标移动到小圆圈上变成手指鼠标 */
+    cursor: pointer;
+}
+
+.circle .current {
+    background-color: #fff;
+}
+
+/* 轮播图样式结束---------------------------------------- */
+.bigtuxia {
+    /* 高
+    边距 */
+    /* background-color: green; */
+    height: 170px;
+    margin: 14px auto 0;
+}
+
+/* ------------------------------- */
+.six {
+    /* 宽、高
+    背景颜色
+    位置 */
+    background-color: #5f5750;
+    width: 234px;
+    height: 170px;
+    position: absolute;
+    left: 0;
+}
+
+.six li {
+    /* 宽高
+    浮动
+    边距 */
+    width: 70px;
+    height: 82px;
+    float: left;
+    padding: 0 3px;
+}
+
+.six li a {
+    /* 字体大小
+    字体颜色
+    文字图片居中
+    边距 */
+    font-size: 12px;
+    color: #fff;
+    opacity: .7;
+    transition: opacity .2s;
+    text-align: center;
+    display: block;
+    padding-top: 18px;
+}
+
+.six li a:hover {
+    opacity: 1;
+}
+
+.six li a img {
+    /* 大小
+    间隔距离 */
+    width: 24px;
+    height: 24px;
+    display: block;
+    margin: 0 auto 4px;
+}
+
+/* sixbox over-------------------------- */
+.threeimg {
+    /* 大小靠撑开
+    左边距
+    位置 */
+    position: absolute;
+    right: 0;
+}
+
+.threeimg ul li {
+    /* 浮动
+    左边距 */
+    float: right;
+    margin-left: 15px;
+    /* background-color: red; */
+}
+
+.threeimg ul li a {}
+
+.threeimg ul li a img {
+    /* 大小 */
+    width: 316px;
+    height: 170px;
+}
+
+/* 主页部分---------------------------------------------------------------------------- */
+.mainpage {
+    background-color: #f5f5f5;
+}
+
+/* -------------------------------------- */
+.banner {
+    /* 边距 */
+    margin: 22px 0;
+}
+
+.banner a img {
+    /* 大小 */
+    height: 120px;
+}
+
+/* ------------------------------------------ */
+.shopping .title {
+    /* 宽（w给定了）、高 */
+    height: 58px;
+    background-color: #f5f5f5;
+    /* 字体大小、颜色、文字居中 */
+    font-size: 22px;
+    font-weight: 200;
+    color: #000;
+    line-height: 58px;
+    position: relative;
+}
+
+.sj .title .more {
+    height: 58px;
+    float: right;
+}
+
+.title .more a {
+    /* 文字颜色、文字大小、字体居中、浮动 */
+    color: #424242;
+    font-size: 16px;
+    line-height: 58px;
+}
+
+.title .more a:hover {
+    color: #ff6700;
+}
+
+.title .more a:hover .more-em {
+    color: #fff;
+    background-color: #ff6700;
+}
+
+.title .more a em {
+    /* display: inline-block;
+    width: 12px;
+    height: 12px; */
+    border-radius: 50%;
+    background-color: #b0b0b0;
+    padding: 4px;
+    margin: 0 0 0 8px;
+    font-family: '../icomoon';
+    font-size: 12px;
+    color: #fff;
+}
+
+.title .wenzi {
+    /* 位置 */
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+}
+
+.title .wenzi li {
+    /* 浮动
+    左边距 */
+    display: inline-block;
+    margin-left: 30px;
+    padding-top: 16px;
+    line-height: 26px;
+    /* 文字大小、颜色 */
+    font-size: 16px;
+    color: #424242;
+    /* 下边框 */
+    border-bottom: 2px solid rgba(0, 0, 0, 0);
+    /* background-color: red; */
+    transition: border .3s;
+}
+
+.title .wenzi .w-current {
+    color: #ff6700;
+    border-bottom: 2px solid #ff6700;
+}
+
+/* ------------------ */
+.shopping .hbody {
+    position: relative;
+    height: 628px;
+}
+
+.hbody .l1 li {
+    width: 234px;
+    height: 614px;
+    position: absolute;
+    left: 0;
+    background-color: #fff;
+    transition: all .2s linear;
+}
+
+.hbody .l1 li img {
+    /* 图片大小 */
+    height: 614px;
+}
+
+.hbody .l2 li {
+    width: 234px;
+    height: 300px;
+    /* background-color: green; */
+    margin-bottom: 14px;
+    /* position: relative; */
+    position: absolute;
+    left: 0;
+}
+
+.hbody .l2 li:first-child {
+    top: 0;
+}
+
+.hbody .l2 li:last-child {
+    top: 314px;
+    margin-bottom: 0;
+}
+
+.hbody .l2 li img {
+    width: 100%;
+    height: 100%;
+}
+
+.hbody .l li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+}
+
+/* ------------------------------------------------------------------- */
+.hbody .r {
+    position: absolute;
+    right: 0;
+    width: 992px;
+    display: none;
+}
+
+.shopping .hbody .r:nth-child(2) {
+    display: block;
+}
+
+.hbody .r ul li {
+    /* 宽、高
+    背景色
+    左边距\下边距 */
+    width: 234px;
+    height: 300px;
+    background-color: #fff;
+    margin-left: 14px;
+    margin-bottom: 14px;
+    /* 上下内边距 */
+    padding: 20px 0;
+    float: left;
+    transition: all .2s linear;
+}
+
+.hbody .r ul li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+}
+
+.hbody .r ul li a {
+    display: block;
+    text-align: center;
+}
+
+.hbody .r ul li a img {
+    /* 大小、位置(通过给父元素添加text-align属性并且父级需要是块级元素) */
+    width: 160px;
+    height: 160px;
+    margin-bottom: 18px;
+}
+
+.hbody .r ul li a h3 {
+    /* 字体颜色，字体大小，文字位置 */
+    color: #333;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.hbody .r ul li a .p1 {
+    /* 字体颜色，字体大小，文字位置 */
+    color: #B0B0B0;
+    font-size: 12px;
+    margin: 0 10px 10px;
+}
+
+.hbody .r ul li a .p2 {
+    /* 字体颜色，字体大小，文字位置 */
+    color: #ff6700;
+    font-size: 14px;
+    margin: 0 10px 14px;
+}
+
+.hbody .r ul li a .p2 span {
+    /* 位置、字体大小、字体颜色、删除线 */
+    font-size: 14px;
+    color: #b0b0b0;
+    text-decoration: line-through;
+    margin-left: 7px;
+}
+
+/* 盒子完成------------------------------------ */
+.hbody .r ul div:last-child ul li {
+    width: 234px;
+    height: 143px;
+    padding: 50px 0 0 0;
+    /* height: 93px;
+    padding: 50px 0 0 0; */
+    margin-left: 14px;
+    background-color: #fff;
+    position: relative;
+}
+
+.hbody .r ul div:last-child ul li a h3 {
+    color: #333;
+    font-size: 14px;
+    font-weight: 400;
+    margin: -10px 110px 5px 30px;
+    text-align: left;
+}
+
+.hbody .r ul div:last-child ul li a p {
+    color: #ff6700;
+    font-size: 12px;
+    margin: 0 110px 0 30px;
+    text-align: left;
+}
+
+.hbody .r ul div:last-child ul li a div {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    right: 20px;
+    top: 32px;
+}
+
+.hbody .r ul div:last-child ul li a div img {
+    width: 100%;
+    height: 100%;
+}
+
+.hbody .r ul div:last-child .last-more a h3 {
+    font-size: 18px;
+    color: #333;
+    font-weight: 0;
+    margin: 0 110px 0 30px;
+}
+
+.hbody .r ul div:last-child .last-more a p {
+    font-size: 12px;
+    color: #757575;
+    margin: 9px 110px 0 30px;
+}
+
+.hbody .r ul div:last-child .last-more a .imgg {
+    /* 位置
+    大小 */
+    position: absolute;
+    right: 35px;
+    top: 48px;
+    width: 48px;
+    height: 48px;
+}
+
+.hbody .r ul div:last-child .last-more a .imgg i {
+    font-family: '../icomoon';
+    font-style: normal;
+    color: #ff6700;
+    font-size: 48px;
+    line-height: 48px;
+}
+
+/* 第二个盒子完毕------------------------------ */
+/* .shopping-four .hbody .r2 .two-last ul .two-last-more a .imgg i {
+    color: red;
+} */
+/* 家电（第四个盒子）开始------------------------------------------ */
+/* .shopping-four .l {
+    width: 234px;
+    height: 614px;
+} */
